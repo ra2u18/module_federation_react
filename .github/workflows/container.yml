@@ -7,13 +7,12 @@ on:
     paths:
       - "packages/container/**"
 
--- All commands will run relatively to the 'container' dir
 defaults:
-  run: 
+  run:
     working-directory: packages/container
-  
+
 jobs:
-  build: 
+  build:
     runs-on: ubuntu-latest
 
     steps:
