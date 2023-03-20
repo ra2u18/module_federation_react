@@ -17,7 +17,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: "Install dependencies"
       - run: npm install --legacy-peer-deps
+
+      - name: "Export openssl"
+      - run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
+
+      - name: "Webpack prod build"
       - run: npm run build
 
       - uses: shinyinc/action-aws-cli@v1.2
