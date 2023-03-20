@@ -12,14 +12,18 @@ const generateClassName = createGenerateClassName({
 import SignIn from "./components/Signin";
 import SignUp from "./components/Signup";
 
-export default ({ history }) => {
+export default ({ history, onSignin }) => {
   return (
     <div>
       <StylesProvider generateClassName={generateClassName}>
         <Router history={history}>
           <Switch>
-            <Route path="/auth/signin" component={SignIn} />
-            <Route path="/auth/signup" component={SignUp} />
+            <Route path="/auth/signin">
+              <SignIn onSignin={onSignin} />
+            </Route>
+            <Route path="/auth/signup">
+              <SignUp onSignin={onSignin} />
+            </Route>
           </Switch>
         </Router>
       </StylesProvider>
